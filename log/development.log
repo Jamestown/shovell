@@ -1,0 +1,85 @@
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mStory Create (2.0ms)[0m   [0mINSERT INTO "stories" ("name", "updated_at", "link", "created_at") VALUES(NULL, '2009-10-06 19:32:00', NULL, '2009-10-06 19:32:00')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (44.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (21.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateStories (20091006194902)
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (5.0ms)[0m   [0mDROP TABLE "stories"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCREATE TABLE "stories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "link" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091006194902')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mPRAGMA index_list("stories")[0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" LIMIT 1[0m
+  [4;35;1mStory Create (2.0ms)[0m   [0mINSERT INTO "stories" ("name", "updated_at", "link", "created_at") VALUES('My shiny weblog', '2009-10-06 20:00:35', 'http://poocs.net/', '2009-10-06 20:00:35')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "stories" [0m
+  [4;35;1mStory Create (3.0ms)[0m   [0mINSERT INTO "stories" ("name", "updated_at", "link", "created_at") VALUES('SitePoint Forums', '2009-10-06 20:01:46', 'http://www.sitepoint.com/forums/', '2009-10-06 20:01:46')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "stories" [0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+  [4;36;1mStory Load (2.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."id" = 2) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" ORDER BY id DESC LIMIT 1[0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" ORDER BY id LIMIT 1[0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" ORDER BY name LIMIT 1[0m
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" ORDER BY name DESC LIMIT 1[0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" ORDER BY stories.id DESC LIMIT 1[0m
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."name" = 'My shiny weblog') LIMIT 1[0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."name" = 'SitePoint Forums') LIMIT 1[0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."name" = 'Sitepoint Forums') LIMIT 1[0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."name" = 'My shiny weblog') LIMIT 1[0m
+  [4;36;1mStory Update (3.0ms)[0m   [0;1mUPDATE "stories" SET "name" = 'A weblog about Ruby on Rails', "updated_at" = '2009-10-06 20:05:06' WHERE "id" = 1[0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+  [4;36;1mStory Update (3.0ms)[0m   [0;1mUPDATE "stories" SET "name" = 'Hello World', "updated_at" = '2009-10-06 20:05:57' WHERE "id" = 1[0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+  [4;36;1mStory Update (2.0ms)[0m   [0;1mUPDATE "stories" SET "name" = 'A weblog about Ruby on Rails', "updated_at" = '2009-10-06 20:06:13' WHERE "id" = 1[0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+  [4;36;1mStory Destroy (2.0ms)[0m   [0;1mDELETE FROM "stories" WHERE "id" = 1[0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."id" = 1) [0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" IN (1,2)) [0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" WHERE ("stories"."id" = 2) [0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+  [4;35;1mStory Load (0.0ms)[0m   [0mSELECT * FROM "stories" [0m
+  [4;36;1mStory Load (1.0ms)[0m   [0;1mSELECT * FROM "stories" [0m
+  [4;35;1mStory Load (1.0ms)[0m   [0mSELECT * FROM "stories" [0m
+  [4;36;1mStory Load (0.0ms)[0m   [0;1mSELECT * FROM "stories" WHERE ("stories"."id" = 1) [0m
+
+
+Processing Rails::InfoController#properties (for 127.0.0.1 at 2009-10-06 13:38:06) [GET]
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Completed in 123ms (View: 21, DB: 2) | 200 OK [http://localhost/rails/info/properties]
+
+
+Processing StoriesController#index (for 127.0.0.1 at 2009-10-06 13:38:24) [GET]
+Rendering stories/index
+Completed in 43ms (View: 39, DB: 0) | 200 OK [http://localhost/stories/]
