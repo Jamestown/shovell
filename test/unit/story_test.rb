@@ -21,4 +21,17 @@ class StoryTest < ActiveSupport::TestCase
     
     assert s.valid?
   end
+  
+  def test_should_have_a_votes_association
+    assert_equal [votes(:first), votes(:second)], stories(:one).votes
+  end
+  
+  def test_should_return_highest_vote_id_first
+    assert_equal votes(:second), stories(:one).votes.latest.first
+  end
+  
+  def test_should_return_3_latest_votes
+    10.times { stories(:one).votes.create }
+    assert_equal 3, stories(:one).votes.latest.size
+  end
 end
