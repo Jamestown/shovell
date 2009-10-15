@@ -17,4 +17,5 @@ class VotesControllerTest < ActionController::TestCase
     post :create, :story_id => stories(:two)
     assert_redirected_to story_path(stories(:two))
   end
+  
 end

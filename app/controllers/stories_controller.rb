@@ -1,4 +1,6 @@
 class StoriesController < ApplicationController
+  before_filter :login_required, :only => [:new, :create]
+  
   def index
     @story = Story.find(:first, :order => 'RANDOM()')
   end
@@ -8,7 +10,8 @@ class StoriesController < ApplicationController
   end
   
   def create
-    @story = Story.new(params[:story])
+    @story = @current_user.stories.build params[:story]
+    
     if @story.save
       flash[:notice] = 'Story submission succeeded'
       redirect_to stories_path
