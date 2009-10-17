@@ -11,6 +11,9 @@
     <%= render :partial => 'votes/vote', :collection => @story.votes.latest %>
   <% end %>
 </ul>
+<p>
+  <%= @story.description %>
+</p>
 <p class="submitted_by">
   Submitted by:
   <span><%= @story.user.login %></span>

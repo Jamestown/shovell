@@ -4,6 +4,8 @@ class Story < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :link
   
+  after_create :create_initial_vote
+  
   has_many :votes do
     def latest
       find :all, :order => 'id DESC', :limit => 3
@@ -13,4 +15,9 @@ class Story < ActiveRecord::Base
   def to_param
     "#{id}-#{name.gsub(/\W/, '-').downcase}"
   end
+  
+  protected
+    def create_initial_vote
+      votes.create :user => user
+    end
 end
