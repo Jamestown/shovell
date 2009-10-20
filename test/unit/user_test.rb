@@ -7,4 +7,10 @@ class UserTest < ActiveSupport::TestCase
     # this is currently not working because the IDs in the db are off
     #assert_equal stories(:one), users(:patrick).stories[0]
   end
+  
+  def test_stories_voted_on_associations
+    assert_equal [stories(:one)],
+      users(:patrick).stories_voted_on
+  end
+  
 end
